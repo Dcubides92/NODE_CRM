@@ -13,7 +13,8 @@ var Cliente = new Schema({
     instagram: String,
     facebook: String,
     linkedin: String,
-    twitter: String
+    twitter: String,
+    estado: String
 })
 
 module.exports = mongoose.model('cliente', Cliente);
