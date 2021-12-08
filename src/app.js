@@ -16,7 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 var Clientes = require('./models/Clientes');
-
+var Estado = require('./models/estado');
 
 //inicio
 app.get('/inicio', async function (req, res) {
@@ -34,7 +34,7 @@ app.post('/nuevoCliente', async function (req, res) {
     res.redirect('/inicio');
 })
 
-//Modificar 
+//Modificar Informacion Genetal 
 app.get('/modificar/:id', async function (req, res) {
     var id = req.params.id;
     var t = await Clientes.findOne({ _id: id });
@@ -73,6 +73,53 @@ app.get('/modificar/:id', async function (req, res) {
 
 })
 
+//Modificar fecha,Cliente y Observaciones 
+
+app.get('/estado/:id', async function (req, res) {
+    var id = req.params.id;
+    var t = await Clientes.findOne({ _id: id });
+    var nom = t.cliente;
+
+    console.log("modificar estado id: " + id);
+    var t = await Estado.find({ id_cliente: id });
+    res.render('estado', {
+        estado: t,
+        id: id,
+        cliente: nom
+    });
+})
+
+// Modificar el estado del cliente
+
+app.post('/models/estado.js', async function (req, res) {
+    var t = new Estado(req.body);
+    await t.save();
+    res.redirect('/estado');
+})
+
+//Se Elimina los Docuemntos 
+
+app.get('/eliminar/:id/', async function (req, res) {
+    var id = req.params.id;
+    console.log("Deberiasmos Eliminar " + id);
+    var clientes = await Clientes.findById(id);
+    await clientes.remove();
+    res.redirect('/inicio');
+});
+
+//Servisor 
+
+app.listen(3000, function () {
+    console.log("Se esta conectando por el puerto 3000 al Servisor");
+});
+
+
+
+
+
+
+
+
 
 
 /*
@@ -84,7 +131,7 @@ app.post('/modificarmonto/:id', async function(req,res){
     var modificar = await Gastos.findById(id);
 
     //console.log()
-    //modificar.monto = 
+    //modificar.monto =
     //await tarea.save();
 
     //forma 2
@@ -103,18 +150,3 @@ app.post('/modificarGasto', async function(req,res){
 
 */
 
-//Se Elimina los Docuemntos 
-
-app.get('/eliminar/:id/', async function (req, res) {
-    var id = req.params.id;
-    console.log("Deberiasmos Eliminar " + id);
-    var clientes = await Clientes.findById(id);
-    await clientes.remove();
-    res.redirect('/inicio');
-});
-
-//Servisor 
-
-app.listen(3000, function () {
-    console.log("Se esta conectando por el puerto 3000 al Servisor");
-});
