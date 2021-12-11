@@ -12,7 +12,10 @@
     <body>
 
     <div>
-    <form action="/modificarClientes" method="POST">
+    <form action="/modificarClientes" method="post">
+        <div class="mb-3">
+            <label for="">id</label><input type="text" name="id" value="<%= id %>"class="form-control">
+        </div>
         <div class="mb-3">
             <label for="">Fecha</label><input type="date" name="fecha" value="<%= fecha %>" class="form-control">
         </div>
@@ -26,7 +29,7 @@
             <label for="">E-mail</label><input type="email" name="email"  value="<%= email %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Telefono</label><input type="number" name="email"  value="<%= telefono %>"  class="form-control">
+            <label for="">Telefono</label><input type="number" name="telefono"  value="<%= telefono %>"  class="form-control">
         </div>
         <div class="mb-3">
             <label for="">País</label><input type="text" name="pais"  value="<%= pais %>"  class="form-control">
