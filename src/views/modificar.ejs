@@ -1,55 +1,49 @@
+<%- include ('partials/header'); %>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        
-        <link href="https://getbootstrap.com/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    </head>
-    <body>
-
-    <div>
+<div class="container">
     <form action="/modificarClientes" method="post">
         <div class="mb-3">
-            <label for="">id</label><input type="text" name="id" value="<%= id %>"class="form-control">
+            <label for="">id</label><input type="text" name="id" value="<%= t._id %>"class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Fecha</label><input type="date" name="fecha" value="<%= fecha %>" class="form-control">
+            <label for="">Fecha</label><input type="date" name="fecha" value="<%= t.fecha %>" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Nombre</label><input type="text" name="nombre"  value="<%= nombre %>" class="form-control">
+            <label for="">Nombre</label><input type="text" name="nombre"  value="<%= t.nombre %>" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Apellidos</label><input type="text" name="apellidos"  value="<%= apellido %>" class="form-control">
+            <label for="">Apellidos</label><input type="text" name="apellidos"  value="<%= t.apellido %>" class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">E-mail</label><input type="email" name="email"  value="<%= email %>"  class="form-control">
+            <label for="">Tipo Documento</label><input type="text" name="email"  value="<%= t.t_documento %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Telefono</label><input type="number" name="telefono"  value="<%= telefono %>"  class="form-control">
+            <label for="">No. documento</label><input type="text" name="telefono"  value="<%= t.no_documento %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">País</label><input type="text" name="pais"  value="<%= pais %>"  class="form-control">
+            <label for="">E-mail</label><input type="email" name="email"  value="<%= t.email %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Ciudad</label><input type="text" name="ciudad"  value="<%= ciudad %>"  class="form-control">
+            <label for="">Telefono</label><input type="number" name="telefono"  value="<%= t.telefono %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Dirección</label><input type="text" name="direccion"  value="<%= direccion %>"  class="form-control">
+            <label for="">País</label><input type="text" name="pais"  value="<%= t.pais %>"  class="form-control">
         </div>
         <div class="mb-3">
-            <label for="">Instagram</label><input type="text" name="instagram" value="<%= instagram %>" class="form-control">
-            <label for="">Facebook</label><input type="text" name="facebook" value="<%= facebook %>" class="form-control">
-            <label for="">Linkedin</label><input type="text" name="linkedin" value="<%= linkedin %>" class="form-control">
-            <label for="">Twitter</label><input type="text" name="twitter" value="<%= twitter %>" class="form-control">
+            <label for="">Ciudad</label><input type="text" name="ciudad"  value="<%= t.ciudad %>"  class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="">Dirección</label><input type="text" name="direccion"  value="<%= t.direccion %>"  class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="">Instagram</label><input type="text" name="instagram" value="<%= t.instagram %>" class="form-control">
+            <label for="">Facebook</label><input type="text" name="facebook" value="<%= t.facebook %>" class="form-control">
+            <label for="">Linkedin</label><input type="text" name="linkedin" value="<%= t.linkedin %>" class="form-control">
+            <label for="">Twitter</label><input type="text" name="twitter" value="<%= t.twitter %>" class="form-control">
         </div>
         <div>
-            <button type="submit">modificar</button>
+            <button type="submit" class="btn btn-primary">modificar</button>
         </div>
     </form>
-    <div>
-    </div>
 </div>
+<%- include ('partials/footer'); %>

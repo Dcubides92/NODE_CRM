@@ -1,0 +1,32 @@
+<%- include ('partials/header'); %>
+    <div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Fecha</th>
+                    <th style="width: 150px;">Cliente</th>
+                    <th style="width: 300px;">Observaciones</th>
+                    <th style="width: 150px;">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < estado.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= estado[i].fecha %>
+                        </td>
+                        <td>
+                            <%= estado[i].cliente %>
+                        </td>
+                        <td>
+                            <%= estado[i].observaciones %>
+                        </td>
+                        <td>
+                            <%= estado[i].estado %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+<%- include ('partials/footer'); %>

@@ -21,11 +21,34 @@ var Estado = require('./models/estado');
 app.use(express.static(__dirname +'/public/css'));
 
 //inicio
+app.get('/', async function (req, res) {
+    var t = await Clientes.find();
+    //console.log(req)
+    res.render('index', {
+        clientes: t
+    });
+});
 app.get('/inicio', async function (req, res) {
     var t = await Clientes.find();
     //console.log(req)
     res.render('index', {
         clientes: t
+    });
+});
+
+//formulario para nuevos clientes
+app.get('/cliente', async function (req, res) {
+    //console.log(req)
+    res.render('cliente');
+});
+
+
+//historial de cambios en clientes
+app.get('/historial', async function (req, res) {
+    var t = await Estado.find();
+    //console.log(req)
+    res.render('historial',{
+        estado: t
     });
 });
 
@@ -38,37 +61,12 @@ app.post('/nuevoCliente', async function (req, res) {
 
 //Modificar Informacion Genetal 
 app.get('/modificar/:id', async function (req, res) {
+    console.log(req)
     var id = req.params.id;
     var t = await Clientes.findOne({ _id: id });
-    var fec = t.fecha;
-    var nom = t.nombre;
-    var ape = t.apellidos;
-    var email = t.email;
-    var tel = t.telefono;
-    var pais = t.pais;
-    var ciudad = t.ciudad;
-    var dir = t.direccion;
-    var inst = t.instagram;
-    var face = t.facebook;
-    var link = t.linkedin;
-    var twi = t.twitter;
-    var est = t.estado;
     console.log("modificar id: " + id);
     res.render('modificar', {
-        id: id,
-        fecha: fec,
-        nombre: nom,
-        apellido: ape,
-        email: email,
-        telefono: tel,
-        pais: pais,
-        ciudad: ciudad,
-        direccion: dir,
-        instagram: inst,
-        facebook: face,
-        linkedin: link,
-        twitter: twi,
-        estado: est,
+        t:t
     });
 
 })
