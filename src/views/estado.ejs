@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM - Distribuciones Chiapero</title>
-    <link rel="shortcut icon" href="WhatsApp Image 2021-10-02 at 7.51.49 AM - copia.jpeg" type="image/x-icon">
-    <link rel="shortcut icon" href="https://seeklogo.com/images/C/CMR-logo-1004623E96-seeklogo.com.gif"
-        type="image/x-icon">
     
         <link rel="stylesheet" type="text/css" href="/css/style.css">
 
@@ -18,14 +15,12 @@
 <body>
     <div class="container">
         <form action="/modificarestado" method="POST">
-            <div class="mb-3">
-                <label for="">id</label><input type="text" name="id_cliente" value="<%= id %>"class="form-control">
-            </div>
+            <input type="hidden" name="id_cliente" value="<%= id %>"class="form-control">
             <div class="mb-3">
                 <label for="">Fecha</label><input type="date" name="fecha" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="">Cliente</label><input type="text" name="cliente" value="<%= cliente %>" class="form-control">
+                <label for="">Cliente</label><input type="text" name="cliente" value="<%= cliente %>" class="form-control" disabled>
             </div>
             <div class="mb-3">
                 <label for="">Estado actual</label><input type="text" name="estado_actual" value="<%= estado_actual %>"class="form-control">
