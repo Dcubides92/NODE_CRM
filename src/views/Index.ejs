@@ -1,11 +1,12 @@
 <%- include ('partials/header'); %>
-<div class="container">
-    <h2>Datos Clientes</h2>
-    <div class="d-flex estiloFila p-2 ">
+    <div class="container">
+
+        <h2>Consulta Datos Clientes</h2>
+
         <form action="/nuevoCliente" method="POST">
-            <div class="row ">
+            <div class="d-flex estiloFila  row">
                 <div class="col-md-6">
-                    <div class="form-group row  ">
+                    <div class="form-group row">
                         <label for="estado" class="col-sm-4 col-form-label">Estado</label>
                         <div class="col-sm-8 ">
                             <select name="estado" id="" class="form-select " placeholder="Selecionar una Opción">
@@ -20,44 +21,47 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group row  ">
-                        <label for="nombre" class="col-4  col-form-label">Nombres</label>
-                        <div class="col-sm-8">
+                    <div class="form-group row">
+                        <label for="nombre" class="col-sm-4 col-form-label">Nombres</label>
+                        <div class="col-sm-8 ">
                             <input type="text" id="nombre" name="nombre" class="form-control">
                         </div>
                     </div>
                 </div>
-                <br><br>
-                <div class="mb-3">
-                    <button type="submit " class="btn btn-primary">Filtrar</button>
-                </div>
             </div>
         </form>
+        <br>
+        <div class="row justify-content-end ">
+            <div class="col-lg-1 boton1  ">
+                <button type="submit " class=" btn btn-primary  btn-outline-secundary">Filtrar</button>
+            </div>
+        </div>
     </div>
-</div>
-    <div>
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th style="width: 150px;">Fecha</th>
-                    <th style="width: 150px;">Nombre</th>
-                    <th style="width: 300px;">Apellidos</th>
-                    <th style="width: 150px;">Tipo Documento</th>
-                    <th style="width: 300px;">No. Documento</th>
-                    <th style="width: 150px;">E-Mail</th>
-                    <th style="width: 300px;">Telefono</th>
-                    <th style="width: 300px;">País</th>
-                    <th style="width: 150px;">Ciudad</th>
-                    <th style="width: 150px;">Dirección</th>
-                    <th style="width: 150px;">Instagram</th>
-                    <th style="width: 150px;">Facebook</th>
-                    <th style="width: 150px;">linkedin</th>
-                    <th style="width: 150px;">Twitter</th>
-                    <th style="width: 150px;">Estado</th>
-                    <th style="width: 150px;">Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
+      <br><br><br>
+    <tbody>
+        <div>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Fecha</th>
+                        <th style="width: 100px;">Nombre</th>
+                        <th style="width: 100px;">Apellidos</th>
+                        <th style="width: 100px;">Tipo Documento</th>
+                        <th style="width: 100px;">No. Documento</th>
+                        <th style="width: 100px;">E-Mail</th>
+                        <th style="width: 100px;">Telefono</th>
+                        <th style="width: 100px;">País</th>
+                        <th style="width: 100px;">Ciudad</th>
+                        <th style="width: 100px;">Dirección</th>
+                        <th style="width: 100px;">Instagram</th>
+                        <th style="width: 150px;">Facebook</th>
+                        <th style="width: 150px;">linkedin</th>
+                        <th style="width: 150px;">Twitter</th>
+                        <th style="width: 150px;">Estado</th>
+                        <th style="width: 150px;">Opciones</th>
+                    </tr>
+                </thead>
+
                 <% for(var i=0; i < clientes.length; i++){ %>
                     <tr>
                         <td>
@@ -112,7 +116,8 @@
                         </td>
                     </tr>
                     <% } %>
-            </tbody>
-        </table>
-    </div>
-<%- include ('partials/footer'); %>
+
+            </table>
+        </div>
+    </tbody>
+    <%- include ('partials/footer'); %>

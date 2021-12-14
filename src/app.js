@@ -4,7 +4,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://DIEGO92:Javier17@cluster0.ygwwk.mongodb.net/CRM_Bictia?retryWrites=true&w=majority")
+mongoose.connect("usuario mongo")
     .then(function (db) {
         console.log("Conectado a al Base de Datos");
     })
@@ -17,8 +17,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 var Clientes = require('./models/Clientes');
 var Estado = require('./models/estado');
+
 // dar acceso al css
-app.use(express.static(__dirname +'/public/css'));
+app.use(express.static(__dirname + '/public/css'));
+/* app.use(express.static('public')); */
+
 
 //inicio
 app.get('/', async function (req, res) {
@@ -42,12 +45,11 @@ app.get('/cliente', async function (req, res) {
     res.render('cliente');
 });
 
-
 //historial de cambios en clientes
 app.get('/historial', async function (req, res) {
     var t = await Estado.find();
     //console.log(req)
-    res.render('historial',{
+    res.render('historial', {
         estado: t
     });
 });
@@ -66,7 +68,7 @@ app.get('/modificar/:id', async function (req, res) {
     var t = await Clientes.findOne({ _id: id });
     console.log("modificar id: " + id);
     res.render('modificar', {
-        t:t
+        t: t
     });
 
 })
@@ -75,10 +77,10 @@ app.get('/modificar/:id', async function (req, res) {
 app.post('/modificarClientes', async function (req, res) {
     var body = req.body;
     var id = req.body.id;
-    await Clientes.updateOne({_id: id},{$set:body})
-    .catch(function (err) {
-        console.log(err);
-    })
+    await Clientes.updateOne({ _id: id }, { $set: body })
+        .catch(function (err) {
+            console.log(err);
+        })
     //var t = await Clientes.find();    
     res.redirect('/inicio');
 })
@@ -103,19 +105,20 @@ app.get('/estado/:id', async function (req, res) {
 
 // Modificar el estado del cliente
 app.post('/modificarestado', async function (req, res) {
-//realiza el cambio en el cliente
+    //realiza el cambio en el cliente
     var id = req.body.id_cliente;
     var nom = req.body.cliente;
     var estate = req.body.estado;
-    await Clientes.updateOne({_id: id},{estado:estate})
-    .catch(function (err) {
-        console.log(err);
-    })
-//ingresa el historial de cambios
+    await Clientes.updateOne({ _id: id }, { estado: estate })
+        .catch(function (err) {
+            console.log(err);
+        })
+
+    //ingresa el historial de cambios
     var t = new Estado(req.body);
     await t.save();
 
-    var t = await Estado.find({ id_cliente: id});    
+    var t = await Estado.find({ id_cliente: id });
     res.render('estado', {
         estado: t,
         id: id,
@@ -129,13 +132,15 @@ app.post('/modificarestado', async function (req, res) {
 
 app.get('/eliminar/:id/', async function (req, res) {
     var id = req.params.id;
-    console.log("Deberiasmos Eliminar " + id);
+    console.log("Se esta eliminando " + id);
     var clientes = await Clientes.findById(id);
     await clientes.remove();
     res.redirect('/inicio');
 });
 
-//Servisor 
+//Servidor 
+
 app.listen(3000, function () {
-    console.log("Se esta conectando por el puerto 3000 al Servisor");
+    console.log("Se esta conectando por el puerto 3000 al Servidor");
 });
+

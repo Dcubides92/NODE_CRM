@@ -4,29 +4,55 @@
   box-sizing: border-box;
 }
 
-.body {
-  background: #d47a20;
+body {
+  background-color: #e0e0e0 !important;
+}
+
+.container-fluid img {
+  vertical-align: top;
+  width: 7%;
 }
 
 .container {
-  background: #e0e0e0;
+  border-radius: 30px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  border: 1px solid, rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
- 
+  padding: 15px;
 }
 
-.estiloFila {
-  width: 100%;
-  border-radius: 15px;
-}
+/* .estiloFila {
+  background-color: red;
+
+ } */
 
 h2 {
+  padding-top: 10px;
   text-align: center;
- }
+}
 
 .row {
+  padding: 2px;
+
   
-  padding: 7px;
-  border-radius: 15px;
 }
+
+/* .boton1 {
+  margin: 10px;
+} */
+
+/* .tabla{
+  
+  width: 20%;
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+}
+
+
+.tabla-td{
+  letter-spacing: 1px;
+  background-color: rgb(225, 247, 31);
+  color: white;
+  border: 1px solid black;
+  text-align: center;
+} */
