@@ -79,6 +79,7 @@ app.get('/modificar/:id', async function (req, res) {
 app.post('/modificarClientes', async function (req, res) {
     var body = req.body;
     var id = req.body.id;
+    console.log(body)
     await Clientes.updateOne({ _id: id }, { $set: body })
         .catch(function (err) {
             console.log(err);
@@ -133,6 +134,7 @@ app.post('/modificarestado', async function (req, res) {
 //filtrar el formulario
 app.post('/filtro', async function (req, res) {
     var nom = req.body.nombre;
+    
     var t = await Clientes.find({
         nombre: { $regex: nom, $options: 'i' }
     });
