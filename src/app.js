@@ -3,8 +3,9 @@ var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var textSearch = require("mongoose-text-search");
 
-mongoose.connect("usuario mongo")
+mongoose.connect("mongodb+srv://DIEGO92:Javier17@cluster0.ygwwk.mongodb.net/CRM_Bictia?retryWrites=true&w=majority")
     .then(function (db) {
         console.log("Conectado a al Base de Datos");
     })
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 var Clientes = require('./models/Clientes');
 var Estado = require('./models/estado');
+
 
 // dar acceso al css
 app.use(express.static(__dirname + '/public/css'));
@@ -127,6 +129,20 @@ app.post('/modificarestado', async function (req, res) {
     });
 
 })
+
+//filtrar el formulario
+app.post('/filtro', async function (req, res) {
+    var nom = req.body.nombre;
+    var t = await Clientes.find({
+        nombre: { $regex: nom, $options: 'i' }
+    });
+
+    res.render('index', {
+        clientes: t,
+    });
+
+})
+
 
 //Se Elimina los Docuemntos 
 
