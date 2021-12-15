@@ -1,75 +1,83 @@
 <%- include ('partials/header'); %>
     <div class="container">
-        <h2>Modificar Estado</h2>
-        <form action="/modificarestado" method="POST">
+        <h2>Modificar Estado del Cliente</h2>
+        <div class="d-flex estiloFila ">
+            <form action="/modificarestado" method="POST">
+                <div class="row">
 
-            <div class="d-flex estiloFila  row">
-
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <input type="hidden" name="id_cliente" value="<%= id %>" class="form-control">
-                        <label for="" class="col-sm-4 col-form-label">Cliente</label>
-                        <input type="text" name="cliente" value="<%= cliente %>" class="form-control" readonly>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Cliente</label>
+                            <div class="col-sm-8">
+                                <input type="hidden" name="id_cliente" value="<%= id %>">
+                                <input type="text" name="cliente" value="<%= cliente %>" class="form-control" readonly>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label for="" class="col-sm-4 col-form-label">Estado actual</label>
-                        <div class="col-sm-8">
-                            <input type="text" name="estado_actual" value="<%= estado_actual %>" class="form-control"
-                                disabled>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Estado actual</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="estado_actual" value="<%= estado_actual %>" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Fecha</label>
+                            <div class="col-sm-8">
+                                <input type="date" name="fecha" class="form-control" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Estado nuevo</label>
+                            <div class="col-sm-8">
+                                <select name="estado" id="" class="form-select">
+                                    <option disabled="estado">Selecionar una Opcion</option>
+                                    <option value="interesado">Interesado</option>
+                                    <option value="Presupuesto enviado"> Presupuesto enviado</option>
+                                    <option value="Cliente">Cliente</option>
+                                    <option value="Cliente recurrente">Cliente recurrente</option>
+                                    <option value="No Cliente">No Cliente</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Observaciones</label>
+                            <div class="col-sm-8">
+                                <textarea name="observaciones" id="" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end ">
+                        <div class="col-lg-1 boton1  ">
+                            <button type="submit" class=" btn btn-primary  btn-outline-secundary">Registrar</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label for="" class="col-sm-4 col-form-label">Fecha</label>
-                        <div class="col-sm-8">
-                            <input type="date" name="fecha" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label for="" class="col-sm-4 col-form-label">Estado nuevo</label>
-                        <select name="estado" id="">
-                            <option disabled="estado">Selecionar una Opcion</option>
-                            <option value="interesado">Interesado</option>
-                            <option value="Presupuesto enviado"> Presupuesto enviado</option>
-                            <option value="Cliente">Cliente</option>
-                            <option value="Cliente recurrente">Cliente recurrente</option>
-                            <option value="No Cliente">No Cliente</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="mb-3">
-                    <label for="">Observaciones</label>
-                    <textarea name="observaciones" id="" cols="30" rows="5" class="form-control"></textarea>
-                </div>
-
-                <div class="row justify-content-end ">
-                    <div class="col-lg-1 boton1  ">
-                        <button type="submit" class=" btn btn-primary  btn-outline-secundary">Registrar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
     <br>
     <br>
-    <div>
-        <table class="table table-dark table-striped">
+    <div class="container tablaestado">
+        <table class="table table-hover ">
             <thead>
                 <tr>
-                    <th style="width: 100px;">Fecha</th>
-                    <th style="width: 100px;">Cliente</th>
-                    <th style="width: 100px;">Observaciones</th>
-                    <th style="width: 100px;">Estado</th>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Observaciones</th>
+                    <th>Estado</th>
                 </tr>
             </thead>
             <tbody>
@@ -92,4 +100,5 @@
             </tbody>
         </table>
     </div>
+
     <%- include ('partials/footer'); %>

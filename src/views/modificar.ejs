@@ -8,7 +8,7 @@
             <form action="/modificarClientes" method="post">
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-md-6" hidden>
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">id</label>
                             <div class="col-sm-8">
@@ -43,11 +43,19 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
-                        <div class="form-group row">
-                            <label for="" class="col-sm-4 col-form-label">Tipo Documento</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="t_documento" value="<%= t.t_documento %>" class="form-control">
+                        <div class="form-group row  ">
+                            <label for="t_documento" class="col-4  col-form-label">Tipo documento*</label>
+                            <div class="col-sm-8 ">
+                                <select name="t_documento" id="" class="form-select">
+                                    <option>Seleccionar una Opción</option>
+                                    <option value="Cedula Ciudadania" <% if(t.t_documento==="Cedula Ciudadania"){ %> selected <% } %> >Cédula de Ciudadanía</option>
+                                    <option value="Tarjeta Identidad" <% if(t.t_documento==="Tarjeta Identidad"){ %> selected <% } %> >Tarjeta de Identidad</option>
+                                    <option value="Cedula Extranjeria" <% if(t.t_documento==="Cedula Extranjeria"){ %> selected <% } %> >Cédula de Extranjería</option>
+                                    <option value="Carnet Diplomatico" <% if(t.t_documento==="Carnet Diplomatico"){ %> selected <% } %> >Carnet Diplomático</option>
+                                    <option value="Pasaporte" <% if(t.t_documento==="Pasaporte"){ %> selected <% } %> >Pasaporte</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -56,7 +64,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">No. documento</label>
                             <div class="col-sm-8">
-                                <input type="text" name="no_documento" value="<%= t.no_documento %>" class="form-control">
+                                <input type="text" name="telefono" value="<%= t.no_documento %>" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -138,7 +146,7 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-end">
+                    <div class="row justify-content-end ">
                         <div class="col-lg-1 boton1  ">
                             <button type="submit" class=" btn btn-primary  btn-outline-secundary">modificar</button>
                         </div>

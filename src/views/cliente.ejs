@@ -1,15 +1,15 @@
 <%- include ('partials/header'); %>
 
     <div class="container">
-        <h2>Registro Datos Cliente</h2>
+        <h2>Registrar Datos del Cliente</h2>
         <div class="d-flex estiloFila p-2 ">
             <form action="/nuevoCliente" method="POST">
                 <div class="row ">
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="fecha" class="col-4  col-form-label">Fecha Inicio</label>
+                            <label for="fecha" class="col-4  col-form-label">Fecha Inicio*</label>
                             <div class="col-sm-8" id="fecha">
-                                <input type="date" id="fecha" name="fecha" class="form-control">
+                                <input type="date" id="fecha" name="fecha" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -18,8 +18,8 @@
                         <div class="form-group row  ">
                             <label for="estado" class="col-sm-4 col-form-label">Estado</label>
                             <div class="col-sm-8 ">
-                                <select name="estado" id="" class="form-select " placeholder="Selecionar una Opción">
-                                    <option>Selecionar una Opción</option>
+                                <select name="estado" id="" class="form-select">
+                                    <option>Seleccionar una Opción</option>
                                     <option value="interesado">Interesado</option>
                                     <option value="Presupuesto enviado"> Presupuesto enviado</option>
                                     <option value="Cliente">Cliente</option>
@@ -32,11 +32,10 @@
 
                     <div class="col-md-6">
                         <div class="form-group row  ">
-                            <label for="t_documento" class="col-4  col-form-label">Tipo documento</label>
+                            <label for="t_documento" class="col-4  col-form-label">Tipo documento*</label>
                             <div class="col-sm-8 ">
-                                <select name="t_documento" id="" class="form-select "
-                                    placeholder="Selecionar una Opción">
-                                    <option>Selecionar una Opción</option>
+                                <select name="t_documento" id="" class="form-select">
+                                    <option>Seleccionar una Opción</option>
                                     <option value="Cedula Ciudadania">Cédula de Ciudadanía</option>
                                     <option value="Tarjeta Identidad">Tarjeta de Identidad</option>
                                     <option value="Cedula Extranjeria">Cédula de Extranjería</option>
@@ -49,25 +48,25 @@
 
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="no_documento" class="col-4 col-form-label">No. documento</label>
-                            <div class="col-sm-8"><input type="text" name="no_documento" class="form-control">
+                            <label for="no_documento" class="col-4 col-form-label">No. documento*</label>
+                            <div class="col-sm-8"><input type="text" name="no_documento" class="form-control" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group row  ">
-                            <label for="nombre" class="col-4  col-form-label">Nombres</label>
+                            <label for="nombre" class="col-4  col-form-label">Nombres*</label>
                             <div class="col-sm-8">
-                                <input type="text" id="nombre" name="nombre" class="form-control">
+                                <input type="text" id="nombre" name="nombre" class="form-control" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="apellidos" class="col-4 col-form-label">Apellidos</label>
-                            <div class="col-sm-8"><input type="text" name="apellidos" class="form-control">
+                            <label for="apellidos" class="col-4 col-form-label">Apellidos*</label>
+                            <div class="col-sm-8"><input type="text" name="apellidos" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -83,25 +82,25 @@
 
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="" class="col-sm-4 col-form-label">Telefono</label>
+                            <label for="" class="col-sm-4 col-form-label">Telefono*</label>
                             <div class="col-sm-8">
-                                <input type="number" name="telefono" class="form-control">
+                                <input type="number" name="telefono" class="form-control" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="" class="col-sm-4 col-form-label">País</label>
-                            <div class="col-sm-8"><input type="text" name="pais" class="form-control">
+                            <label for="" class="col-sm-4 col-form-label">País*</label>
+                            <div class="col-sm-8"><input type="text" name="pais" class="form-control" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group row ">
-                            <label for="" class="col-sm-4 col-form-label">Ciudad</label>
-                            <div class="col-sm-8"><input type="text" name="ciudad" class="form-control">
+                            <label for="" class="col-sm-4 col-form-label">Ciudad*</label>
+                            <div class="col-sm-8"><input type="text" name="ciudad" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -157,13 +156,14 @@
                                     Autorización para la
                                     utilización de datos personales.
 
-                                </label>
+                                </label>                                
                             </div>
                         </div>
+                        <label class="form-check-label">*Campos obligatorios</label>
                     </div>
                     <br>
-                    <div class="row justify-content">
-                        <div class="col-lg-1 boton1">
+                    <div class="row justify-content-end ">
+                        <div class="col-lg-1 boton1  ">
                             <button type="submit " class=" btn btn-primary  btn-outline-secundary">Registrar</button>
                         </div>
                     </div>

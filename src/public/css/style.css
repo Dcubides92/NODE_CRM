@@ -15,44 +15,31 @@ body {
 
 .container {
   border-radius: 30px;
-  background: linear-gradient(145deg, #cacaca, #f0f0f0);
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  padding: 15px;
+  background: #e0e0e0;
+  box-shadow: 21px 21px 42px #949494, -21px -21px 42px #ffffff;
+  padding: 5px;
+  margin-top: 30px;
 }
 
 /* .estiloFila {
   background-color: red;
 
- } */
+ }  */
 
 h2 {
-  padding-top: 10px;
+  padding: 10px;
   text-align: center;
 }
 
 .row {
   padding: 2px;
-
-  
 }
 
-/* .boton1 {
-  margin: 10px;
-} */
-
-/* .tabla{
-  
-  width: 20%;
-  background-color: red;
-  color: white;
-  border: 1px solid black;
+.tablaindex {
+  font-size: 10px;
 }
 
-
-.tabla-td{
-  letter-spacing: 1px;
-  background-color: rgb(225, 247, 31);
-  color: white;
-  border: 1px solid black;
-  text-align: center;
-} */
+.tablaestado {
+  background: linear-gradient(145deg, #cacaca91, #bdbcbc);
+  padding: 15px;
+}
