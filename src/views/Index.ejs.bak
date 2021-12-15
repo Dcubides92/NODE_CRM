@@ -110,9 +110,9 @@
                             <%= clientes[i].estado %>
                         </td>
                         <td>
-							<a href="/modificar/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil"></i></button></a>
-							<a href="/eliminar/<%= clientes[i]._id %>"> <button type="button" class="btn btn-outline-dark"> <i class="bi bi-trash"></i></button></a>
-							<a href="/estado/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-stopwatch"></i></button></a>
+                            <a href="/modificar/<%= clientes[i]._id %>">[Modificar]</a>
+                            <a href="/eliminar/<%= clientes[i]._id %>">[Eliminar]</a>
+                            <a href="/estado/<%= clientes[i]._id %>">[Historial]</a>
                         </td>
                     </tr>
                     <% } %>
