@@ -37,7 +37,7 @@
         </form>
         <br>
     </div>
-      <br><br><br>
+    <br><br><br>
     <tbody>
         <div>
             <table class=" table table-active tablaindex">
@@ -110,9 +110,9 @@
                             <%= clientes[i].estado %>
                         </td>
                         <td>
-							<a href="/modificar/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil"></i></button></a>
-							<a href="/eliminar/<%= clientes[i]._id %>"> <button type="button" class="btn btn-outline-dark"> <i class="bi bi-trash"></i></button></a>
-							<a href="/estado/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-stopwatch"></i></button></a>
+                            <a href="/modificar/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil"></i></button></a>
+                            <a href="/eliminar/<%= clientes[i]._id %>"> <button type="button" class="btn btn-outline-dark"> <i class="bi bi-trash"></i></button></a>
+                            <a href="/estado/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-clock-history"></i></button></a>
                         </td>
                     </tr>
                     <% } %>
