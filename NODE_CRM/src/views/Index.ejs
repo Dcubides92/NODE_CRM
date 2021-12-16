@@ -1,0 +1,123 @@
+<%- include ('partials/header'); %>
+    <div class="container">
+
+        <h2>Consulta Datos Clientes</h2>
+
+        <form action="/filtro" method="POST">
+            <div class="d-flex estiloFila  row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="estado" class="col-sm-4 col-form-label">Estado</label>
+                        <div class="col-sm-8 ">
+                            <select name="estado" id="" class="form-select " placeholder="Selecionar una Opción">
+                                <option>Selecionar una Opción</option>
+                                <option value="interesado">Interesado</option>
+                                <option value="Presupuesto enviado"> Presupuesto enviado</option>
+                                <option value="Cliente">Cliente</option>
+                                <option value="Cliente recurrente">Cliente recurrente</option>
+                                <option value="No Cliente">No Cliente</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="nombre" class="col-sm-4 col-form-label">Nombres</label>
+                        <div class="col-sm-8 ">
+                            <input type="text" id="nombre" name="nombre" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-lg-1 boton1  ">
+                        <button type="submit " class=" btn btn-primary  btn-outline-secundary" id="filtrar">Filtrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+    </div>
+      <br><br><br>
+    <tbody>
+        <div>
+            <table class=" table table-active tablaindex">
+                <thead>
+                    <tr class="table-secondary">
+                        <th>Fecha</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Tipo Documento</th>
+                        <th>No. Documento</th>
+                        <th>E-Mail</th>
+                        <th>Telefono</th>
+                        <th>País</th>
+                        <th>Ciudad</th>
+                        <th>Dirección</th>
+                        <th>Instagram</th>
+                        <th>Facebook</th>
+                        <th>linkedin</th>
+                        <th>Twitter</th>
+                        <th>Estado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+
+                <% for(var i=0; i < clientes.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= clientes[i].fecha %>
+                        </td>
+                        <td>
+                            <%= clientes[i].nombre %>
+                        </td>
+                        <td>
+                            <%= clientes[i].apellidos %>
+                        </td>
+                        <td>
+                            <%= clientes[i].t_documento %>
+                        </td>
+                        <td>
+                            <%= clientes[i].no_documento %>
+                        </td>
+                        <td>
+                            <%= clientes[i].email %>
+                        </td>
+                        <td>
+                            <%= clientes[i].telefono %>
+                        </td>
+                        <td>
+                            <%= clientes[i].pais %>
+                        </td>
+                        <td>
+                            <%= clientes[i].ciudad %>
+                        </td>
+                        <td>
+                            <%= clientes[i].direccion %>
+                        </td>
+                        <td>
+                            <%= clientes[i].instagram %>
+                        </td>
+                        <td>
+                            <%= clientes[i].facebook %>
+                        </td>
+                        <td>
+                            <%= clientes[i].linkedin %>
+                        </td>
+                        <td>
+                            <%= clientes[i].twitter %>
+                        </td>
+                        <td>
+                            <%= clientes[i].estado %>
+                        </td>
+                        <td>
+							<a href="/modificar/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-pencil"></i></button></a>
+							<a href="/eliminar/<%= clientes[i]._id %>"> <button type="button" class="btn btn-outline-dark"> <i class="bi bi-trash"></i></button></a>
+							<a href="/estado/<%= clientes[i]._id %>"><button type="button" class="btn btn-outline-dark"><i class="bi bi-stopwatch"></i></button></a>
+                        </td>
+                    </tr>
+                    <% } %>
+
+            </table>
+        </div>
+    </tbody>
+    <%- include ('partials/footer'); %>

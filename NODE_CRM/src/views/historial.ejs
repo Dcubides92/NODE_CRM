@@ -1,0 +1,34 @@
+<%- include ('partials/header'); %>
+    <div class="container tablaestado">
+        <h2>Historial de los Clientes</h2>
+
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">Fecha</th>
+                    <th style="width: 100px;">Cliente</th>
+                    <th style="width: 100px;">Observaciones</th>
+                    <th style="width: 100px;">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < estado.length; i++){ %>
+                    <tr>
+                        <td>
+                            <%= estado[i].fecha %>
+                        </td>
+                        <td>
+                            <%= estado[i].cliente %>
+                        </td>
+                        <td>
+                            <%= estado[i].observaciones %>
+                        </td>
+                        <td>
+                            <%= estado[i].estado %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <%- include ('partials/footer'); %>

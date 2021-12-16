@@ -1,0 +1,158 @@
+<%- include ('partials/header'); %>
+    <div class="container">
+
+        <h2>Modificar Datos del Cliente</h2>
+
+        <div class="d-flex estiloFila p-2">
+
+            <form action="/modificarClientes" method="post">
+                <div class="row">
+
+                    <div class="col-md-6" hidden>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">id</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="id" value="<%= t._id %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Fecha</label>
+                            <div class="col-sm-8">
+                                <input type="date" name="fecha" value="<%= t.fecha %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Nombre</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="nombre" value="<%= t.nombre %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Apellidos</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="apellidos" value="<%= t.apellidos %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row  ">
+                            <label for="t_documento" class="col-4  col-form-label">Tipo documento*</label>
+                            <div class="col-sm-8 ">
+                                <select name="t_documento" id="" class="form-select">
+                                    <option>Seleccionar una Opción</option>
+                                    <option value="Cedula Ciudadania" <% if(t.t_documento==="Cedula Ciudadania"){ %> selected <% } %> >Cédula de Ciudadanía</option>
+                                    <option value="Tarjeta Identidad" <% if(t.t_documento==="Tarjeta Identidad"){ %> selected <% } %> >Tarjeta de Identidad</option>
+                                    <option value="Cedula Extranjeria" <% if(t.t_documento==="Cedula Extranjeria"){ %> selected <% } %> >Cédula de Extranjería</option>
+                                    <option value="Carnet Diplomatico" <% if(t.t_documento==="Carnet Diplomatico"){ %> selected <% } %> >Carnet Diplomático</option>
+                                    <option value="Pasaporte" <% if(t.t_documento==="Pasaporte"){ %> selected <% } %> >Pasaporte</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">No. documento</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="telefono" value="<%= t.no_documento %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">E-mail</label>
+                            <div class="col-sm-8">
+                                <input type="email" name="email" value="<%= t.email %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Telefono</label>
+                            <div class="col-sm-8">
+                                <input type="number" name="telefono" value="<%= t.telefono %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">País</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="pais" value="<%= t.pais %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Ciudad</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="ciudad" value="<%= t.ciudad %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Dirección</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="direccion" value="<%= t.direccion %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Instagram</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="instagram" value="<%= t.instagram %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Facebook</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="facebook" value="<%= t.facebook %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Linkedin</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="linkedin" value="<%= t.linkedin %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-4 col-form-label">Twitter</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="twitter" value="<%= t.twitter %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end ">
+                        <div class="col-lg-1 boton1  ">
+                            <button type="submit" class=" btn btn-primary  btn-outline-secundary">modificar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include ('partials/footer'); %>

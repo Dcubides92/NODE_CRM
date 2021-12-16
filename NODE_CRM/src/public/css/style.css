@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0e0e0 !important;
+}
+
+.container-fluid img {
+    vertical-align: top;
+    width: 7%;
+}
+
+.container {
+    border-radius: 30px;
+    background: #e0e0e0;
+    box-shadow: 21px 21px 42px #949494, -21px -21px 42px #ffffff;
+    padding: 5px;
+    margin-top: 30px;
+}
+
+
+/* .estiloFila {
+  background-color: red;
+
+ }  */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+h2 {
+    padding: 10px;
+    text-align: center;
+}
+
+.row {
+    padding: 4px;
+}
+
+.tablaindex {
+    font-size: 10px;
+}
+
+.tablaestado {
+    background: linear-gradient(145deg, #cacaca91, #bdbcbc);
+    padding: 15px;
+}
