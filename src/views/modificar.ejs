@@ -48,9 +48,9 @@
                         <div class="form-group row  ">
                             <label for="t_documento" class="col-4  col-form-label">Tipo documento*</label>
                             <div class="col-sm-8 ">
-                                <select name="t_documento" id="" class="form-select">
+                                <select name="t_documento" id="" class="form-select" disabled="disabled">
                                     <option>Seleccionar una Opción</option>
-                                    <option value="Cedula Ciudadania" <% if(t.t_documento==="Cedula Ciudadania"){ %> selected <% } %> >Cédula de Ciudadanía</option>
+                                    <option value="Cedula Ciudadania" <% if (t.t_documento === "Cedula Ciudadania"){ %> selected <% } %> >Cédula de Ciudadanía</option>
                                     <option value="Tarjeta Identidad" <% if(t.t_documento==="Tarjeta Identidad"){ %> selected <% } %> >Tarjeta de Identidad</option>
                                     <option value="Cedula Extranjeria" <% if(t.t_documento==="Cedula Extranjeria"){ %> selected <% } %> >Cédula de Extranjería</option>
                                     <option value="Carnet Diplomatico" <% if(t.t_documento==="Carnet Diplomatico"){ %> selected <% } %> >Carnet Diplomático</option>
@@ -64,10 +64,12 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">No. documento</label>
                             <div class="col-sm-8">
-                                <input type="text" name="telefono" value="<%= t.no_documento %>" class="form-control">
+                                <input type="hidden" name="id_documento" value="<%= t.no_documento %>">
+                                <input type="text " name="documento" value="<%= t.no_documento %>" class="form-control" readonly>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label for="" class="col-sm-4 col-form-label">E-mail</label>
