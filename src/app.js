@@ -48,7 +48,28 @@ app.get('/cliente', async function(req, res) {
 
 //historial de cambios en clientes
 app.get('/historial', async function(req, res) {
-    var t = await Estado.find();
+
+    /*
+    var estado= new Estado()
+    Clientes.aggregate([
+        { "$match": { "_id": _id } },
+        { "$unwind": "$friends" },
+        { "$match": { "friends.status": 0 } }],
+        function( err, data ) {
+      
+          if ( err )
+            throw err;
+      
+          console.log( JSON.stringify( data, undefined, 2 ) );
+      
+        }
+      );
+*/
+
+
+
+
+    var t = await Estado.find().sort({_id:-1});
     //console.log(req)
     res.render('historial', {
         estado: t
@@ -66,7 +87,7 @@ app.post('/nuevoCliente', async function(req, res) {
     }
 })
 
-//Modificar Informacion Genetal 
+//llevar información actual para modificar
 app.get('/modificar/:id', async function(req, res) {
     console.log(req)
     var id = req.params.id;
@@ -98,7 +119,7 @@ app.get('/estado/:id', async function(req, res) {
     var nom = t.nombre;
     var estate = t.estado;
     console.log("consultar historial del id: " + id);
-    var t1 = await Estado.find({ id_cliente: id });
+    var t1 = await Estado.find({ id_cliente: id }).sort({_id:-1});
 
     res.render('estado', {
         estado: t1,
